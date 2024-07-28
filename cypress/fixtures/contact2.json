@@ -1,0 +1,18 @@
+{
+    "userOne":
+    {
+        "firstName":"satya",
+        "lastName":"koka",
+        "email":"ammu.duggi123@gmail.com",
+        "msg":"cypress"
+
+    },
+    "userTwo":
+    {
+        "firstName":"vijayalakshmi",
+        "lastName":"duggirala",
+        "email":"vijayalakshmi@gmail.com",
+        "msg":"javascript"
+
+    }
+}
