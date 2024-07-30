@@ -1,15 +1,17 @@
 const { defineConfig } = require("cypress");
 
-const { verifyDownloadTasks } = require('cy-verify-downloads');
+const { verifyDownloadTasks } = require('cy-verify-downloads'); // file download option
+
 module.exports = defineConfig({
 
   chromeWebSecurity : false, // for multitab and multi-window
+  //downloadsFolder:'cypress/e2e/6-downloadFile/downloadedFile',
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
-
-      // task 1 (file cyTask.cy.js)
-      //on('task',taskname(){function def})
+      on('task', verifyDownloadTasks); //file download option
+     // task 1 (file cyTask.cy.js)
+     // on('task',taskname(){function def})
       on('task',{
         print(){
           console.log('i am learning cypress')
