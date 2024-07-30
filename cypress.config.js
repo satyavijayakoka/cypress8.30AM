@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 
+const { verifyDownloadTasks } = require('cy-verify-downloads');
 module.exports = defineConfig({
 
   chromeWebSecurity : false, // for multitab and multi-window
