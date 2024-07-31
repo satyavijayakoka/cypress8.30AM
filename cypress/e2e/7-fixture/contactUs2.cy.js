@@ -5,6 +5,8 @@ import user1 from "../../fixtures/contact1.json"
 import user2 from "../../fixtures/contact2.json"
 import user3 from "../../fixtures/contactA3.json"
 
+import user4 from "../../fixtures/contact4"
+
 describe('verify payload by fixture in cypress', function () {
     it('verify contact us form', function () {
         // cy.log(user1)
@@ -49,9 +51,23 @@ describe('verify payload by fixture in cypress', function () {
         })
 
     })
-    
-    user3.forEach(function(el,index){
-        it(`verify contact us form for user ${index+1}`,function(){
+
+    user3.forEach(function (el, index) {
+        it(`verify contact us form for user ${index + 1}`, function () {
+            cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html')
+            cy.get('[name="first_name"]').type(el.firstName)
+            cy.get('[name="last_name"]').type(el.lastName)
+            cy.get('[name="email"]').type(el.email)
+            cy.get('[name="message"]').type(el.msg)
+            cy.get('[type="submit"]').click()
+
+            cy.get('h1').should('have.text', 'Thank You for your Message!')
+
+        })
+    })
+
+    user4.forEach(function (el, index) {
+        it.only(`verify contact us form for user ${index + 1}`, function () {
             cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html')
             cy.get('[name="first_name"]').type(el.firstName)
             cy.get('[name="last_name"]').type(el.lastName)
