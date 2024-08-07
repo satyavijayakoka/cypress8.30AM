@@ -22,7 +22,7 @@ describe('verify drag and drop , DB click in cypress',()=>{
 
     })
 
-    it.only('verify mouse hovour',()=>{
+    it('verify mouse hovour',()=>{
         cy.visit('http://www.webdriveruniversity.com/Actions/index.html')
         cy.get('[class="list-alert"]').first().should('not.be.visible')
         // cy.contains('Hover Over Me First!').trigger('mouseover')
@@ -30,5 +30,20 @@ describe('verify drag and drop , DB click in cypress',()=>{
          cy.get('div[class="dropdown-content"]').first().invoke('show')
          cy.get('[class="list-alert"]').first().should('be.visible')
 
+    })
+    it('verify click and hold in cypress',function(){
+        cy.visit('http://www.webdriveruniversity.com/Actions/index.html')
+        cy.get('[id="click-box"]').trigger('mousedown',{button : 1})
+        cy.get('[id="click-box"]').should('have.text','Well done! keep holding that click now.....')
+        cy.get('[id="click-box"]').trigger('mouseup',{button : 1})
+        cy.get('[id="click-box"]').should('have.text','Dont release me!!!')
+    })
+
+    it.only('verify scrollInview in cypress',()=>{
+        cy.visit('http://www.webdriveruniversity.com/')
+        // cy.get('[id="file-upload"]').scrollIntoView()
+        // cy.get('[id="file-upload"]').should('be.visible')
+        cy.contains('CONTACT US').scrollTo('bottom',{ensureScrollable : false})
+        cy.wait(2000)
     })
 })
