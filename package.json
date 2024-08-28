@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stage-env-test":"npx cypress run --spec /Users/madhuduggirala/Desktop/cypress8.30am/cypress/e2e/3-WebElements/environments.cy.js --browser chrome --config-file stage.config.js",
+    "prod-env-test":"npx cypress run --spec /Users/madhuduggirala/Desktop/cypress8.30am/cypress/e2e/3-WebElements/environments.cy.js --browser chrome --config-file prod.config.js"
   },
   "keywords": [],
   "author": "",
