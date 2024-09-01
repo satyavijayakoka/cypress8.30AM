@@ -1,4 +1,5 @@
-export default{
+export default[
+{
     name : "Satya",
     email : `satya${Math.floor(Math.random()*1000)+1}@gmail.com`,
     gender : "Mrs",
@@ -18,3 +19,4 @@ export default{
     mobno : 9666477714,
 
 }
+]

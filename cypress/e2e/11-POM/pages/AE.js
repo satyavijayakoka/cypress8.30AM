@@ -24,7 +24,7 @@ export default class AEPage{
         state : '[data-qa="state"]',
         city : '[data-qa="city"]',
         zipcode : '[data-qa="zipcode"]',
-        mobNo : '[data-qa="mobile_number"]',
+        mobno : '[data-qa="mobile_number"]',
         creatAccBtn : '[data-qa="create-account"]',
 
         // validation page
@@ -37,7 +37,9 @@ export default class AEPage{
         //  login
         loginEmail : '[data-qa="login-email"]',
         loginPw : '[data-qa="login-password"]',
-        loginBtn : '[data-qa="login-button"]'
+        loginBtn : '[data-qa="login-button"]',
+        loginVerify :'class="fa fa-user"]',
+        validateUsr : 'ul[class="nav navbar-nav"] > li'
 
     }
 
@@ -74,7 +76,7 @@ export default class AEPage{
       cy.get(this.selector.state).type(el.state)
       cy.get(this.selector.city).type(el.city)
       cy.get(this.selector.zipcode).type(el.zipcode)
-      cy.get(this.selector.mobNo).type(el.mobNo)
+      cy.get(this.selector.mobno).type(el.mobno)
       cy.get(this.selector.creatAccBtn).click()
     }
 
@@ -84,6 +86,16 @@ export default class AEPage{
 
     btnClick(btncss){
       cy.get(btncss).click()
+    }
+
+    loginUser(el){
+      cy.get(this.selector.loginEmail).type(el.email)
+      cy.get(this.selector.loginPw).type(el.password)
+      cy.get(this.selector.loginBtn).click()
+    }
+
+    validateLoginUser(el){
+      cy.get(this.selector.validateUsr).eq(9).should('contain',el.name)
     }
 
 
